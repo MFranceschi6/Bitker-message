@@ -14,11 +14,12 @@ import java.util.List;
  * @see Message
  *
  */
-public class Block extends Header {
+public class Block extends Message {
 
     /**
      * the parameter which keeps all the {@link Transaction} of this Message
      */
+    private BlockHeader header;
     private List<Transaction> transactions;
 
     /**
@@ -50,8 +51,9 @@ public class Block extends Header {
 
     @Override
     public void read(LittleEndianInputStream leis) throws IOException {
-        super.read(leis);
-        for(long i = 0; i < getCount(); i++)
+        header = new BlockHeader();
+        header.read(leis);
+        for(long i = 0; i < header.getCount(); i++)
         {
             Transaction tran = new Transaction();
             tran.read(leis);
@@ -62,7 +64,7 @@ public class Block extends Header {
 
     @Override
     public void write(LittleEndianOutputStream leos) throws IOException {
-        super.write(leos);
+        header.write(leos);
         for(Transaction tran : transactions)
             tran.write(leos);
     }
