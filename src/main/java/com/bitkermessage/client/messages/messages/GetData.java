@@ -5,6 +5,10 @@ package com.bitkermessage.client.messages.messages;
  */
 public class GetData extends Inventory {
 
+    public GetData(List<InventoryVector> iv){
+		super(iv);
+	}
+    
     @Override
     public String getCommand() {
         return "getdata";
