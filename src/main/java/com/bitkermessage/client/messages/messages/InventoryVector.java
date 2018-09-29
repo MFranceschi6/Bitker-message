@@ -62,6 +62,10 @@ public class InventoryVector implements BitSerializable {
         leos.write(hash);
     }
 
+    public int getTypeAsInt(){
+    	return type;
+    }
+    
     public InventoryTypes getType() {
         switch (type)
         {
