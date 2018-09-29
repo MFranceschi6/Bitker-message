@@ -15,6 +15,10 @@ public class Inventory extends Message {
 
     private List<InventoryVector> inventoryVectors;
 
+    public Inventory(List<InventoryVector> iv){
+		inventoryVectors = iv;
+	}
+    
     public Inventory(){
         inventoryVectors = new ArrayList<>();
     }
