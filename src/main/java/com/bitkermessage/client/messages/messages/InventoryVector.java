@@ -28,6 +28,10 @@ public class InventoryVector implements BitSerializable {
         this.hash = Sha256.getHash(msg).toBytes();
     }
 
+    public Sha256Hash getHash(){
+    	return new Sha256Hash(hash);
+    }
+    
     public void setType(InventoryTypes type) {
         switch (type)
         {
