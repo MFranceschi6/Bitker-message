@@ -147,7 +147,7 @@ public class Header extends Message{
             varint = 3;
         else if(blockheaders.size() <= 0xFFFFFFFF)
             varint = 5;
-        return 36*blockheaders.size() + varint;
+        return 81*blockheaders.size() + varint;
 
     }
 
