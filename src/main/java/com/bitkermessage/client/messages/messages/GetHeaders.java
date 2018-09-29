@@ -5,6 +5,10 @@ package com.bitkermessage.client.messages.messages;
  */
 public class GetHeaders extends GetBlocks {
 
+    public GetHeaders(List<byte []> h){
+		super(h);
+	}
+    
     @Override
     public String getCommand() {
         return "getheaders";
