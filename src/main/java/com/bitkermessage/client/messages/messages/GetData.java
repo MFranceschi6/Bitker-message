@@ -1,5 +1,7 @@
 package com.bitkermessage.client.messages.messages;
 
+import java.util.List;
+
 /**
  * Created by Matteo on 07/10/2016.
  */

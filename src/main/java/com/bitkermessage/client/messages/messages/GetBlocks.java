@@ -16,6 +16,7 @@ public class GetBlocks extends Message {
 
     private int version;
     private List<byte []> hashes;
+    private byte [] hashstop;
 
     public GetBlocks(List<byte []> h){
         hashes = h;
@@ -33,9 +34,25 @@ public class GetBlocks extends Message {
         this.version = version;
     }
 
+    public void setHashstop(byte [] arr){
+        hashstop = arr;
+    }
+
     @Override
     public String getCommand() {
         return "getblocks";
+    }
+
+    @Override
+    public long getLength() {
+        int varint = 1;
+        if(hashes.size() < 0xFD)
+            varint = 1;
+        else if(hashes.size() <= 0xFFFF)
+            varint = 3;
+        else if(hashes.size() <= 0xFFFFFFFF)
+            varint = 5;
+        return 4+varint+(32*hashes.size())+32;
     }
 
     @Override
@@ -48,6 +65,8 @@ public class GetBlocks extends Message {
             leis.read(b);
             hashes.add(b);
         }
+        hashstop = new byte [Sha256Hash.HASH_LENGTH];
+        leis.read(hashstop);
     }
 
     @Override
@@ -58,5 +77,6 @@ public class GetBlocks extends Message {
         {
             leos.write(hash);
         }
+        leos.write(hashstop);
     }
 }
