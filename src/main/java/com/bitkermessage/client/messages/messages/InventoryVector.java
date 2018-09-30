@@ -32,6 +32,10 @@ public class InventoryVector implements BitSerializable {
     	return new Sha256Hash(hash);
     }
     
+    public byte[] getHashAsByte(){
+    	return hash;
+    }
+    
     public void setType(InventoryTypes type) {
         switch (type)
         {
