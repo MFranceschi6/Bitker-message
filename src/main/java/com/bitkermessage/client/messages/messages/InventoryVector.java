@@ -32,7 +32,7 @@ public class InventoryVector implements BitSerializable {
     	return new Sha256Hash(hash);
     }
     
-    public byte[] getHashAsByte(){
+    public byte[] getHashAsBytes(){
     	return hash;
     }
     
