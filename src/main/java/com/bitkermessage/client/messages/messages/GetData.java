@@ -7,6 +7,11 @@ import java.util.List;
  */
 public class GetData extends Inventory {
 
+
+    public GetData(){
+        super();
+    }
+
     public GetData(List<InventoryVector> iv){
 		super(iv);
 	}

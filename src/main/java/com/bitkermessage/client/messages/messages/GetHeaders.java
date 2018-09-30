@@ -7,6 +7,10 @@ import java.util.List;
  */
 public class GetHeaders extends GetBlocks {
 
+    public GetHeaders(){
+        super();
+    }
+
     public GetHeaders(List<byte []> h){
         super(h);
     }
