@@ -17,6 +17,10 @@ public class GetBlocks extends Message {
     private int version;
     private List<byte []> hashes;
 
+    public GetBlocks(List<byte []> h){
+        hashes = h;
+    }
+    
     public GetBlocks(){
         hashes = new ArrayList<>();
     }
