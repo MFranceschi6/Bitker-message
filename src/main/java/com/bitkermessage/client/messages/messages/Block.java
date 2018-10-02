@@ -40,6 +40,14 @@ public class Block extends Message {
     }
 
     /**
+     * returns the header of the block
+     * @return the header of the block
+     */
+    public BlockHeader getHeader(){
+    	return header;
+    }
+    
+    /**
      * returns the command for this message
      * @return "block"
      */
