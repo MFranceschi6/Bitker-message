@@ -39,7 +39,7 @@ public class InventoryVector implements BitSerializable {
     public void setType(InventoryTypes type) {
         switch (type)
         {
-            case ERROR :
+            case ERROR:
                 this.type = 0;
                 break;
             case MSG_TX :
@@ -53,6 +53,15 @@ public class InventoryVector implements BitSerializable {
                 break;
             case MSG_CMPCT_BLOCK:
                 this.type = 4;
+                break;
+            case MSG_WITNESS_BLOCK:
+                this.type = 5;
+                break;
+            case MSG_WITNESS_TX:
+                this.type = 6;
+                break;
+            case MSG_FILTERED_WITNESS_BLOCK:
+                this.type = 7;
                 break;
         }
     }
@@ -87,6 +96,12 @@ public class InventoryVector implements BitSerializable {
                 return InventoryTypes.MSG_FILTERED_BLOCK;
             case 4 :
                 return InventoryTypes.MSG_CMPCT_BLOCK;
+            case 5 :
+                return InventoryTypes.MSG_WITNESS_BLOCK;
+            case 6 :
+                return InventoryTypes.MSG_WITNESS_TX;
+            case 7 :
+                return InventoryTypes.MSG_FILTERED_WITNESS_BLOCK;
         }
         return null;
     }
